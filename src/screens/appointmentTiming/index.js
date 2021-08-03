@@ -1,0 +1,1 @@
+export {AppointmentScreen} from './AppointmentScreen';

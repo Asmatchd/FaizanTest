@@ -20,38 +20,40 @@ export class AppointmentScreen extends React.Component {
   state = {
     data: [
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '1',
+        count: '1',
+        color: 'orange',
       },
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '2',
+        count: '2',
       },
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '3',
+        count: '3',
       },
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '4',
+        count: '4',
       },
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '5',
+        count: '5',
       },
       {
-        text: '8:00 AM - 9:00 AM',
+        time: '8:00 AM - 9:00 AM',
         name: 'Faizan',
-        id: '6',
+        count: '6',
       },
     ],
   };
-  design = item => {
+
+  design = item => (
     <TouchableOpacity
       style={{
         height: h('10%'),
@@ -63,8 +65,8 @@ export class AppointmentScreen extends React.Component {
       }}>
       <Text> Text: {item.text}</Text>
       <Text> Name: {item.name}</Text>
-    </TouchableOpacity>;
-  };
+    </TouchableOpacity>
+  );
   render() {
     return (
       <View
@@ -98,8 +100,8 @@ export class AppointmentScreen extends React.Component {
 
         <FlatList
           data={this.state.data}
-          renderItem={item => this.design(item)}
-          keyExtractor={(item, index) => item.id.toString()}
+          renderItem={({item}) => this.design(item)}
+          keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={() => (
             <Text style={{fontSize: h('2.5%')}}>FEB 25</Text>
           )}

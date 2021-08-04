@@ -53,33 +53,22 @@ export class DashBoard extends React.Component {
                 borderColor: 'blue',
                 borderWidth: w('0.3%'),
                 alignItems: 'center',
-                justifyContent: 'space-evenly',
+                // justifyContent: 'space-evenly',
+                justifyContent: 'center',
               }}>
-              <View
+              <Image
                 style={{
-                  height: '60%',
-                  width: '30%',
-                  // backgroundColor: '#faf',
-                  alignItems: 'center',
+                  height: 70,
+                  width: 70,
+                }}
+                source={require('../../assets/medical.png')}
+              />
+              <Text
+                style={{
+                  marginTop: h('1%'),
                 }}>
-                <Image
-                  style={{
-                    height: 70,
-                    width: 70,
-                  }}
-                  source={require('../../assets/medical.png')}
-                />
-              </View>
-              <View
-                style={
-                  {
-                    // height: '40%',
-                    // width: '30%',
-                    // backgroundColor: '#aaf',
-                  }
-                }>
-                <Text>Get Doctor Appointment</Text>
-              </View>
+                Get Doctor Appointment
+              </Text>
             </TouchableOpacity>
           </View>
           <View
@@ -118,16 +107,7 @@ export class DashBoard extends React.Component {
                   source={require('../../assets/shopping-cart.png')}
                 />
               </View>
-              <View
-                style={
-                  {
-                    // height: '40%',
-                    // width: '30%',
-                    // backgroundColor: '#aaf',
-                  }
-                }>
-                <Text>Go to Cart</Text>
-              </View>
+              <Text>Go to Cart</Text>
             </TouchableOpacity>
           </View>
           <View

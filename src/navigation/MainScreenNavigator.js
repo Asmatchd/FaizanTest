@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {DashBoard} from '../screens/dashboard';
 import {DoctorProfile} from '../screens/doctorProfile';
 import {History} from '../screens/history';
 import {TabNavigator} from './TabNavigator';
@@ -20,11 +19,7 @@ export const MainScreenNavigator = () => {
           component={TabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen
-          name="DashBoard"
-          component={DashBoard}
-          options={{headerShown: false}}
-        />
+
         <Stack.Screen
           name="DoctorProfile"
           component={DoctorProfile}

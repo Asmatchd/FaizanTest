@@ -18,6 +18,23 @@ import {
 import {AppHeader, AppBtn} from '../../components';
 
 export class DoctorProfile extends React.Component {
+  state = {
+    data: [
+      {
+        date: '04/06/1968',
+        disease: 'flue',
+      },
+      {
+        date: '04/06/1968',
+        disease: 'flue',
+      },
+      {
+        date: '04/06/1968',
+        disease: 'flue',
+      },
+    ],
+    showHistory: false,
+  };
   render() {
     return (
       <View
@@ -114,12 +131,17 @@ export class DoctorProfile extends React.Component {
               flexDirection: 'row',
             }}>
             <TouchableOpacity
+              onPress={() => {
+                this.setState({showHistory: false});
+              }}
               style={{
                 height: '100%',
                 width: '50%',
                 // backgroundColor: '#afa',
                 alignItems: 'center',
                 justifyContent: 'center',
+                borderBottomColor: 'orange',
+                borderBottomWidth: this.state.showHistory === false ? 3 : 0,
               }}>
               <Text
                 style={{
@@ -131,7 +153,7 @@ export class DoctorProfile extends React.Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                this.props.navigation.navigate('History');
+                this.setState({showHistory: true});
               }}
               style={{
                 height: '100%',
@@ -139,6 +161,8 @@ export class DoctorProfile extends React.Component {
                 // backgroundColor: '#aa0',
                 alignItems: 'center',
                 justifyContent: 'center',
+                borderBottomColor: 'orange',
+                borderBottomWidth: this.state.showHistory === true ? 3 : 0,
               }}>
               <Text
                 style={{
@@ -149,24 +173,41 @@ export class DoctorProfile extends React.Component {
               </Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              height: '60%',
-              // marginTop: h('3.5%'),
-              padding: h('3%'),
-            }}>
-            <Text
+          {this.state.showHistory === false ? (
+            <View
               style={{
-                fontSize: h('2.4%'),
+                height: '60%',
+                // marginTop: h('3.5%'),
+                padding: h('3%'),
               }}>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-            </Text>
-          </View>
+              <Text
+                style={{
+                  fontSize: h('2.4%'),
+                }}>
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old. Richard McClintock, a
+                Latin professor at Hampden-Sydney College in Virginia, looked up
+                one of the more obscure Latin words, consectetur, from a Lorem
+                Ipsum passage, and going through the cites of the word in
+                classical
+              </Text>
+            </View>
+          ) : (
+            <View
+              style={{
+                height: '60%',
+                // marginTop: h('3.5%'),
+                padding: h('3%'),
+              }}>
+              <Text
+                style={{
+                  fontSize: h('2.4%'),
+                }}>
+                All history design here
+              </Text>
+            </View>
+          )}
           <View
             style={{
               height: '30%',

@@ -57,14 +57,56 @@ export class AppointmentScreen extends React.Component {
     <TouchableOpacity
       style={{
         height: h('10%'),
-        width: w('90%'),
-        backgroundColor: '#faf',
-        // marginRight: h('0.5%'),
-        marginLeft: h('0.5%'),
+        width: '95%',
+        // backgroundColor: 'green',
+        borderWidth: w('0.5%'),
+        borderTopWidth: 1,
+        borderColor: 'rgba(0,0,0,0.1)',
+        marginLeft: h('1.5%'),
         flexDirection: 'row',
       }}>
-      <Text> Text: {item.text}</Text>
-      <Text> Name: {item.name}</Text>
+      <View
+        style={{
+          height: '100%',
+          width: '1%',
+          backgroundColor: '#5C47C4',
+        }}></View>
+      <View
+        style={{
+          height: '100%',
+          width: '15%',
+          // backgroundColor: 'green',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Icon name={'ios-person-outline'} color={'#5C47C4'} size={25} />
+        <Text>{item.count}</Text>
+      </View>
+      <View
+        style={{
+          height: '100%',
+          width: '70%',
+          // backgroundColor: 'green',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text
+          style={{
+            fontSize: h('2.8%'),
+          }}>
+          {item.time}
+        </Text>
+      </View>
+      <View
+        style={{
+          height: '100%',
+          width: '15%',
+          // backgroundColor: 'green',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Icon name={'chevron-forward'} color={'#5C47C4'} size={30} />
+      </View>
     </TouchableOpacity>
   );
   render() {
@@ -77,7 +119,7 @@ export class AppointmentScreen extends React.Component {
         <StatusBar backgroundColor={'orange'} />
         <AppHeader
           title={'Book Appointment'}
-          leftIc={'ios-arrow-back'}
+          leftIc={'chevron-back-outline'}
           leftPressed={() => {
             this.props.navigation.goBack();
           }}
@@ -104,6 +146,13 @@ export class AppointmentScreen extends React.Component {
           keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={() => (
             <Text style={{fontSize: h('2.5%')}}>FEB 25</Text>
+          )}
+          ItemSeparatorComponent={() => (
+            <View
+              style={{
+                height: h('1%'),
+              }}
+            />
           )}
         />
       </View>

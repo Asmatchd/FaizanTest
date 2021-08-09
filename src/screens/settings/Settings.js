@@ -65,7 +65,7 @@ export class Settings extends React.Component {
                   containerStyle={{
                     backgroundColor: '#0004',
                   }}
-                  source={require('../../assets/lady-doctor.jpg')}
+                  source={require('../../assets/ladyDoctor.png')}
                 />
               </View>
               <View
@@ -98,10 +98,12 @@ export class Settings extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <MaterialCommunityIcons
-                  name={'doctor'}
-                  color={'blue'}
-                  size={35}
+                <Image
+                  style={{
+                    height: 28,
+                    width: 25,
+                  }}
+                  source={require('../../assets/doctorIcon.png')}
                 />
               </View>
               <View
@@ -134,7 +136,13 @@ export class Settings extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <Icon name={'ios-lock-closed'} color={'blue'} size={35} />
+                <Image
+                  style={{
+                    height: 28,
+                    width: 25,
+                  }}
+                  source={require('../../assets/password.png')}
+                />
               </View>
               <View
                 style={{
@@ -166,7 +174,13 @@ export class Settings extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <FontAwesome5 name={'handshake'} color={'blue'} size={35} />
+                <Image
+                  style={{
+                    height: 22,
+                    width: 37,
+                  }}
+                  source={require('../../assets/termsCondition.png')}
+                />
               </View>
               <View
                 style={{
@@ -198,7 +212,13 @@ export class Settings extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <SimpleLineIcons name={'logout'} color={'blue'} size={35} />
+                <Image
+                  style={{
+                    height: 28,
+                    width: 32,
+                  }}
+                  source={require('../../assets/logOut.png')}
+                />
               </View>
               <View
                 style={{

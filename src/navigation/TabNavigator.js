@@ -7,6 +7,7 @@ import {
 import {DashBoard} from '../screens/dashboard';
 import {Settings} from '../screens/settings';
 import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +39,7 @@ export const TabNavigator = () => {
         component={Settings}
         options={{
           tabBarIcon: ({color}) => (
-            <Icon name={'ios-settings-sharp'} color={color} size={18} />
+            <FontAwesome name={'cogs'} color={color} size={18} />
           ),
         }}
       />

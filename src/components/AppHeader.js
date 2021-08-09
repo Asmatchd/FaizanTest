@@ -12,20 +12,32 @@ export class AppHeader extends React.Component {
   render() {
     return (
       <View
-        style={{
-          height: h('6%'),
-          backgroundColor: 'blue',
-          flexDirection: 'row',
-        }}>
+        {...this.props}
+        style={[
+          {
+            height: h('6%'),
+            backgroundColor: '#5C47C4',
+            flexDirection: 'row',
+          },
+          this.props.stle,
+        ]}>
         <TouchableOpacity
           onPress={this.props.leftPressed}
-          style={{
-            height: h('6%'),
-            width: w('15%'),
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Icon name={this.props.leftIc} size={h('4%')} color={'white'} />
+          style={[
+            {
+              height: h('6%'),
+              width: w('15%'),
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+          ]}>
+          <Icon
+            {...this.props}
+            style={[{}, this.props.icSt]}
+            name={this.props.leftIc}
+            size={h('5%')}
+            color={'white'}
+          />
         </TouchableOpacity>
         <View
           style={{
@@ -50,7 +62,7 @@ export class AppHeader extends React.Component {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Icon name={this.props.rightIc} size={h('4%')} color={'white'} />
+          <Icon name={this.props.rightIc} size={h('6%')} color={'white'} />
         </TouchableOpacity>
       </View>
     );

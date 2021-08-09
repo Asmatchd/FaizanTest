@@ -26,7 +26,7 @@ export class DashBoard extends React.Component {
           // justifyContent: 'center',
         }}>
         <SafeAreaView />
-        <StatusBar backgroundColor={'orange'} />
+        <StatusBar backgroundColor={'#FBB03B'} />
         <AppHeader title={'DashBoard'} />
         <View
           style={{
@@ -50,7 +50,7 @@ export class DashBoard extends React.Component {
                 width: '90%',
                 // backgroundColor: 'pink',
                 borderRadius: h('1%'),
-                borderColor: 'blue',
+                borderColor: '#5C47C4',
                 borderWidth: w('0.3%'),
                 alignItems: 'center',
                 // justifyContent: 'space-evenly',
@@ -58,14 +58,16 @@ export class DashBoard extends React.Component {
               }}>
               <Image
                 style={{
-                  height: 70,
-                  width: 70,
+                  height: 55,
+                  width: 60,
+                  // backgroundColor: '#FBB03B',
                 }}
-                source={require('../../assets/medical.png')}
+                source={require('../../assets/doctorAppointmnt.png')}
               />
               <Text
                 style={{
                   marginTop: h('1%'),
+                  fontSize: h('2.3%'),
                 }}>
                 Get Doctor Appointment
               </Text>
@@ -87,27 +89,26 @@ export class DashBoard extends React.Component {
                 width: '90%',
                 // backgroundColor: 'pink',
                 borderRadius: h('1%'),
-                borderColor: 'blue',
+                borderColor: '#5C47C4',
                 borderWidth: w('0.3%'),
                 alignItems: 'center',
-                justifyContent: 'space-evenly',
+                justifyContent: 'center',
               }}>
-              <View
+              <Image
                 style={{
-                  height: '60%',
-                  width: '30%',
-                  // backgroundColor: '#faf',
-                  alignItems: 'center',
+                  height: 50,
+                  width: 55,
+                }}
+                source={require('../../assets/cart.png')}
+              />
+
+              <Text
+                style={{
+                  fontSize: h('2.3%'),
+                  marginTop: h('1%'),
                 }}>
-                <Image
-                  style={{
-                    height: 70,
-                    width: 70,
-                  }}
-                  source={require('../../assets/shopping-cart.png')}
-                />
-              </View>
-              <Text>Go to Cart</Text>
+                Go to Cart
+              </Text>
             </TouchableOpacity>
           </View>
           <View
@@ -123,36 +124,26 @@ export class DashBoard extends React.Component {
                 width: '90%',
                 // backgroundColor: 'pink',
                 borderRadius: h('1%'),
-                borderColor: 'blue',
+                borderColor: '#5C47C4',
                 borderWidth: w('0.3%'),
                 alignItems: 'center',
-                justifyContent: 'space-evenly',
+                justifyContent: 'center',
               }}>
-              <View
+              <Image
                 style={{
-                  height: '60%',
-                  width: '30%',
-                  // backgroundColor: '#faf',
-                  alignItems: 'center',
+                  height: 50,
+                  width: 70,
+                }}
+                source={require('../../assets/waitingRoom.png')}
+              />
+
+              <Text
+                style={{
+                  marginTop: h('1%'),
+                  fontSize: h('2.3%'),
                 }}>
-                <Image
-                  style={{
-                    height: 70,
-                    width: 70,
-                  }}
-                  source={require('../../assets/waiting-room.png')}
-                />
-              </View>
-              <View
-                style={
-                  {
-                    // height: '40%',
-                    // width: '30%',
-                    // backgroundColor: '#aaf',
-                  }
-                }>
-                <Text>Waiting Room</Text>
-              </View>
+                Waiting Room
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

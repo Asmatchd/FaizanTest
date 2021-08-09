@@ -21,7 +21,7 @@ export class AppBtn extends React.Component {
             {
               width: '70%',
               height: h('6%'),
-              backgroundColor: 'orange',
+              backgroundColor: '#FBB03B',
               borderRadius: h('2%'),
               alignItems: 'center',
               justifyContent: 'center',

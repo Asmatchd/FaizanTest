@@ -8,6 +8,7 @@ import {
   Image,
   SafeAreaView,
   StatusBar,
+  FlatList,
 } from 'react-native';
 import {Avatar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -22,19 +23,54 @@ export class DoctorProfile extends React.Component {
     data: [
       {
         date: '04/06/1968',
-        disease: 'flue',
+        reason: 'Flue',
       },
       {
         date: '04/06/1968',
-        disease: 'flue',
+        reason: 'Flue',
       },
       {
         date: '04/06/1968',
-        disease: 'flue',
+        reason: 'Flue',
+      },
+      {
+        date: '04/06/1968',
+        reason: 'Flue',
       },
     ],
     showHistory: false,
   };
+  listDesign = item => (
+    <TouchableOpacity
+      style={{
+        height: h('6%'),
+        width: '90%',
+        // backgroundColor: '#faf',
+        borderWidth: w('0.5%'),
+        borderTopWidth: 1,
+        borderColor: 'rgba(0,0,0,0.1)',
+        marginLeft: h('2.5%'),
+        borderRadius: h('1.3%'),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}>
+      <Text
+        style={{
+          fontSize: h('2.2%'),
+          marginLeft: h('2%'),
+        }}>
+        {item.date}
+      </Text>
+      <Text
+        style={{
+          fontSize: h('2.2%'),
+          marginRight: h('5%'),
+        }}>
+        {item.reason}
+      </Text>
+    </TouchableOpacity>
+  );
   render() {
     return (
       <View
@@ -45,10 +81,10 @@ export class DoctorProfile extends React.Component {
           //   backgroundColor: '#faf',
         }}>
         <SafeAreaView />
-        <StatusBar backgroundColor={'orange'} />
+        <StatusBar backgroundColor={'#FBB03B'} />
         <AppHeader
           title={'Doctor'}
-          leftIc={'ios-arrow-back'}
+          leftIc={'chevron-back-outline'}
           leftPressed={() => {
             this.props.navigation.goBack();
           }}
@@ -73,11 +109,7 @@ export class DoctorProfile extends React.Component {
             <Avatar
               size="xlarge"
               rounded
-              // title="MF"
-              containerStyle={{
-                backgroundColor: '#0004',
-              }}
-              source={require('../../assets/doctor-profile.jpg')}
+              source={require('../../assets/doctorProfile.png')}
             />
           </View>
           <View
@@ -121,13 +153,13 @@ export class DoctorProfile extends React.Component {
         {/* Bottom View */}
         <View
           style={{
-            height: h('51%'),
+            flex: 1,
             // backgroundColor: '#aaf',
           }}>
           <View
             style={{
               height: '15%',
-              backgroundColor: 'blue',
+              backgroundColor: '#5C47C4',
               flexDirection: 'row',
             }}>
             <TouchableOpacity
@@ -140,7 +172,7 @@ export class DoctorProfile extends React.Component {
                 // backgroundColor: '#afa',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderBottomColor: 'orange',
+                borderBottomColor: '#FBB03B',
                 borderBottomWidth: this.state.showHistory === false ? 3 : 0,
               }}>
               <Text
@@ -176,7 +208,7 @@ export class DoctorProfile extends React.Component {
           {this.state.showHistory === false ? (
             <View
               style={{
-                height: '60%',
+                height: '70%',
                 // marginTop: h('3.5%'),
                 padding: h('3%'),
               }}>
@@ -196,30 +228,55 @@ export class DoctorProfile extends React.Component {
           ) : (
             <View
               style={{
-                height: '60%',
-                // marginTop: h('3.5%'),
-                padding: h('3%'),
+                height: '70%',
+                // backgroundColor: 'green',
               }}>
-              <Text
-                style={{
-                  fontSize: h('2.4%'),
-                }}>
-                All history design here
-              </Text>
+              <FlatList
+                data={this.state.data}
+                renderItem={({item}) => this.listDesign(item)}
+                keyExtractor={(item, index) => index.toString()}
+                ListHeaderComponent={() => (
+                  <View
+                    style={{
+                      height: h('5%'),
+                      // backgroundColor: 'green',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: h('2.2%'),
+                        marginLeft: h('4%'),
+                      }}>
+                      Appointment Date
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: h('2.2%'),
+                        marginRight: h('6%'),
+                      }}>
+                      Reason
+                    </Text>
+                  </View>
+                )}
+                ItemSeparatorComponent={() => (
+                  <View
+                    style={{
+                      height: h('1%'),
+                    }}
+                  />
+                )}
+              />
             </View>
           )}
-          <View
-            style={{
-              height: '30%',
-              // backgroundColor: 'gray',
-            }}>
-            <AppBtn
-              onPress={() => {
-                this.props.navigation.navigate('AppointmentScreen');
-              }}
-              txt={'Book Know'}
-            />
-          </View>
+
+          <AppBtn
+            onPress={() => {
+              this.props.navigation.navigate('AppointmentScreen');
+            }}
+            txt={'Book Know'}
+          />
         </View>
       </View>
     );
